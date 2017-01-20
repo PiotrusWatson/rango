@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+	<head>
+		<title>ABOUT</title>
+	</head>
+
+	<body>
+		<h1> ABOUT</h1>
+		<div>
+		HELLO I AM HERE TO DISCUSS IMPORTANT MATTERS SUCH AS: SPROTS.</br>
+		WHAT IS YOURE FAVOURITE SPROT? MINES FENCE
+		</div>
+		<div>
+		<img src="{% static "images/towels.jpg" %}"
+		alt="A PICTURE OF A MAN HOLDING SEVERAL TOWELS. HE IS SWEATING PROFUSELY. SADLY THERE ARE SO MANY TOWELS THAT HE HAS HAD TO EVOLVE SEVERAL EXTRA HANDS
+IN ORDER TO HOLD THEM ALL. IT IS A DAMN SHAME IN THIS DAY AND AGE THAT SUCH THINGS STILL HAPPEN." />
+		</div>
+		<div>
+		<img src = "{{ MEDIA_URL }}spiraltowel.gif" alt = "A PICTURE OF A RECURSIVE LOOP OF TOWELS ATTACHED TO
+		A MAN. THE TOWELS NEVER STOP. NOT EVER.">
+		</div>
+	</body>
+
+</html>

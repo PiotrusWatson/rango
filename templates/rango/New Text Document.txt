@@ -2,11 +2,11 @@
 <html>
 
 	<head>
-		<title>Rango</title>
+		<title>ABOUT</title>
 	</head>
 
 	<body>
-		<h1> HELLO FRIEND.</h1>
+		<h1> ABOUT</h1>
 		<div>
-		BUDDY. PAL. MATE. <br />
-		<strong>{{ boldmessage }}</strong><br />
+		HELLO I AM HERE TO DISCUSS IMPORTANT MATTERS SUCH AS: SPROTS. WHAT IS YOURE FAVOURITE SPROT? MINES FENCE
+		</div>
