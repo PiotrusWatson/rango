@@ -11,11 +11,37 @@
 		<h1> HELLO FRIEND.</h1>
 		<div>
 		BUDDY. PAL. MATE. <br />
-		<strong>{{ boldmessage }}</strong><br />
 		</div>
+		
+		<h2> PEOPLE LIKED THESE CATEGORIES THE MOST</h2>
+		<div>
+		{% if categories %}
+		<ul>
+			{% for category in categories %}
+				<li><a href="/rango/category/{{ category.slug }}">{{ category.name }} </a></li>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<strong>THERE ARE NO CATEGORIES PRESENT.</strong>
+		{% endif %}
+		</div>
+		<h2> PEOPLE VIEWED THESE PAGES THE MOST </h2>
+		<div>
+		{% if pages %}
+		<ul>
+			{% for page in pages %}
+				<li><a href="{{ page.url }}" > {{ page.title }}</a></li>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<strong>THERE ARE NO PAGES PRESENT.</strong>
+		{% endif %}
+		</div>
+		
+		
 		<div>
 			<a href="/rango/about/"> A PAGE ABOUT IMPORTANT INFORMATION</a><br />
-			<img src="{% static "images/towel.jpg" %}"
+			<img src="{% static "images/rango.jpg" %}"
 			 alt="PICTURE OF MAN HOLDING A TOWEL, SWEATING PROFUSELY. HE IS CLEARLY PERTURBED BY SOMETHING
 			 HAPPENING OFF SCREEN HOWEVER IT IS UP TO US, THE VIEWER, TO DECIDE WHAT THAT COULD BE. THERE
 			 IS AMBIGUITY WHICH IS THE HEART OF ANY GOOD INTERNET IMAGE" />
