@@ -1,2 +1,3 @@
 config/api_keys.py
 *.pyc
+db.sqlite3
