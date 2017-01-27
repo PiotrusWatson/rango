@@ -5,6 +5,8 @@ import django
 django.setup()
 from rango.models import Category, Page
 
+import datetime
+
 def populate():
     """ Create lists of dicts with each page we want in each category
         Then a dict of dicts for each category

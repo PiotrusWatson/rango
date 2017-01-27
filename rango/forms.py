@@ -19,7 +19,6 @@ class PageForm(forms.ModelForm):
     url = forms.URLField(max_length=200,
                          help_text="Please enter the URL of the page.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-
     def clean(self):
         cleaned_data = self.cleaned_data
         url = cleaned_data.get('url')
