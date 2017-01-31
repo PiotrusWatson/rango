@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
 
-	<head>
-		<title>ABOUT</title>
-	</head>
 
-	<body>
-		<h1> ABOUT</h1>
-		<div>
-		HELLO I AM HERE TO DISCUSS IMPORTANT MATTERS SUCH AS: SPROTS. WHAT IS YOURE FAVOURITE SPROT? MINES FENCE
-		</div>
+
+	<ul>
+		{% if cats %}
+			{% for c in cats %}
+				<li> <a href="{% url 'show_category' c.slug %}">{{ c.name }}</a></li>
+			{% endfor %}
+		{% else %}
+			<li> <strong> There are no categories present.</strong> </li>
+		{% endif %}
