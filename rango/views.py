@@ -4,6 +4,7 @@ from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm
 from rango.forms import PageForm
+from rango.forms import UserForm, UserProfileForm
 from django.core.urlresolvers import reverse
 
 def index(request):
@@ -73,3 +74,48 @@ def add_page(request, category_name_slug):
 
     context_dict = {'form': form, 'category': category}
     return render(request, "rango/add_category.html", context_dict)
+
+def register(request):
+    #A boolean value which tells the template whether registration was successful
+    registered = False;
+
+    if request.method == 'POST': #well if its a HTTP POST we want that form data
+
+
+        #getting that sick form data into delicious info pumped directly into our veins
+        user_form = UserForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST)
+
+        if user_form.is_valid() and profile_form.is_valid():
+
+            user = user_form.save() #save form data to database
+
+            #and hash their password and save that
+            user.set_password(user.password)
+            user.save()
+
+            #~~~DEALING WITH USER PROFILES~~~
+
+            #commit=false so we can avoid integrity problems until we're ready
+            profile = profile_form.save(commit=false)
+            profile = user
+
+            #if theres a picture, go find it
+            if 'picture' in request.FILES:
+                profile.picture = request.FILES['picture']
+            #save them profiles
+            profile.save()
+
+            registered = True
+        else:
+            print(user_form.errors, profile_form.errors)
+    else:
+        #IF NOT A POST, SHOVE BLANK CLASSES IN HERE
+        user_form = UserForm()
+        profile_form = UserProfileForm()
+
+    return render(request,
+                  'rango/register.html',
+                  {'user_form': user_form,
+                   'profile_form': profile_form,
+                   'registered': registered})
