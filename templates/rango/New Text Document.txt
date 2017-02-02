@@ -1,1 +1,2 @@
 {% extends 'rango/base.html' %}
+{% load staticfiles %}
