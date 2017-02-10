@@ -22,6 +22,7 @@ def index(request):
     visitor_cookie_handler(request)
 
     context_dict['visits'] = request.session['visits']
+    context_dict['last_visit'] = request.session['last_visit']
     response = render(request, 'rango/index.html', context_dict)
 
     return response
@@ -156,7 +157,7 @@ def user_login(request):
 
                 #but if it exists and is active its fine log in
                 login(request,user)
-                return HttpResponseRedirect(reverse('rango:index'))
+                return HttpResponseRedirect(reverse('index'))
             else:
                 return HTTPResponse("Your Rango account is disabled.")
         else: #BAD LOGIN DETAILS
@@ -194,7 +195,7 @@ def visitor_cookie_handler(request):
     last_visit_time = datetime.strptime(last_visit_cookie[:-7],
                                         '%Y-%m-%d %H:%M:%S')
 
-    #if more than day sine last visit
+    #if more than day since last visit
     if (datetime.now() - last_visit_time).days > 0:
         visits = visits + 1
         # update last visit cookie
