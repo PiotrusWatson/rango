@@ -1,0 +1,57 @@
+rango.tests_chapter10.Chapter10ViewTests.test_about_page_shows_number_of_visits
+F
+======================================================================
+FAIL: test_about_page_shows_number_of_visits (rango.tests_chapter10.Chapter10ViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "h:\rango_tests-master\rango_tests-master\temporal\rango\tests_chapter10.py", line 108, in test_about_page_shows_number_of_visits
+    self.assertIn('visits: 1'.lower(), response.content.lower())
+AssertionError: 'visits: 1' not found in '<!doctype html>\n\n\n<html>\n\n\t<head>\n\t\t<title>\n\t\t\trango -\n\t\t\t\n\t\t\t\thow to tango with django\n\t\t\t\n\t\t</title>\n\t</head>\n\n\t<body>\n\t\t<div>\n\t\t\t\n\t\t\t\t\n\n<ul>\n\t\n\t\t<li> <strong> there are no categories present.</strong> </li>\n\t\n</ul>\n\t\t\t\n\t\t</div>\n\t\t<div>\n\t\t\t\n\t<h1>about</h1>\n\t<div>\n\t<h2>rango says here is the about page</h2>\n\t<h2>this tutorial has been put together by piotrus watson</h2>\n\t<h2>you have visited the site 1 times!</h2>\n\t</div>\n\n\t<div>\n\t<img src="/static/images/towels.jpg"\n\talt="a picture of a man holding several towels. he is sweating profusely. sadly there are so many towels that he has had to evolve several extra hands\n\tin order to hold them all. it is a damn shame in this day and age that such things still happen." />\n\t</div>\n\t<div>\n\t<img src="/media/cat.jpg"> \n\t</div>\n\n\t\t</div>\n\t\t<hr />\n\t\t<div>\n\t\t\t<ul>\n\t\t\t\n\t\t\t\t<li> <a href="/rango/register/">sign up</a></li>\n\t\t\t\t<li> <a href="/rango/login/">sign in </a> </li>\n\t\t\t\n\t\t\t\t<li> <a href="/rango/about/">about</a></li>\n\t\t\t\t<li> <a href="/rango/">index</a></li>\n\t\t\t\t\n\t\t\t</ul>\n\t\t</div>\n\t</body>\n</html>\n'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.188s
+
+FAILED (failures=1)
+===========================================================================
+
+
+rango.tests_chapter10.Chapter10SessionTests.test_user_number_of_access_and_last_access_to_index
+E
+======================================================================
+ERROR: test_user_number_of_access_and_last_access_to_index (rango.tests_chapter10.Chapter10SessionTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "h:\rango_tests-master\rango_tests-master\temporal\rango\tests_chapter10.py", line 56, in test_user_number_of_access_and_last_access_to_index
+    self.assertIsNotNone(self.client.session['last_visit'])
+  File "H:\rango\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'last_visit'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.167s
+
+FAILED (errors=1)
+===========================================================================
+
+
+rango.tests_chapter3.Chapter3ViewTests.test_about_contains_create_message
+E
+======================================================================
+ERROR: test_about_contains_create_message (rango.tests_chapter3.Chapter3ViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "h:\rango_tests-master\rango_tests-master\temporal\rango\tests_chapter3.py", line 20, in test_about_contains_create_message
+    response = self.client.get(reverse('about'))
+  File "H:\rango\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "H:\rango\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+NoReverseMatch: Reverse for 'about' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+
+----------------------------------------------------------------------
+Ran 1 test in 0.275s
+
+FAILED (errors=1)
+===========================================================================
+
+
